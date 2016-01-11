@@ -41,6 +41,10 @@ export default Ember.Route.extend({
 
     Ember.set(model, 'databaseArray', databaseArray);
 
-    requestAnimationFrame(Ember.run.bind(this, this.loadSamples));
+    Ember.run.schedule('afterRender', function() {
+      console.profileEnd('initalRender');
+    });
+
+    //requestAnimationFrame(Ember.run.bind(this, this.loadSamples));
   }
 });
